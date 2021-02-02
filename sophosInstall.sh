@@ -15,9 +15,12 @@ chmod a+x /private/var/tmp/sophos/Sophos\ Installer.app/Contents/MacOS/tools/com
 sudo /private/var/tmp/sophos/Sophos\ Installer.app/Contents/MacOS/Sophos\ Installer --install;
 /bin/rm -rf /private/var/tmp/sophos;
 
-#Registering Sophos: REBOOT REQUIRED POST INSTALL
+#Registering Sophos: REBOOT REQUIRED
 sudo killall SophosConfigD 
 sudo launchctl stop com.sophos.mcs 
+
+#Running Recon to update to JAMF cloud
+sudo jamf recon
 
 exit 0      ## Success
 exit 1      ## Failure
